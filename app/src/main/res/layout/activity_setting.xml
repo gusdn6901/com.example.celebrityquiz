@@ -11,10 +11,11 @@
     tools:context=".SettingActivity">
     <ImageView
         android:id="@+id/modeBackground"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/image_shape_gray"
         android:contentDescription="@null"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +33,7 @@
         app:layout_constraintTop_toTopOf="@+id/modeBackground" />
 
     <RadioGroup
-        android:id="@+id/modeRadioGroup"
+        android:id="@+id/radioGroupMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -56,14 +57,14 @@
     <!-- Time -->
     <ImageView
         android:id="@+id/timeBackground"
-        android:layout_width="170dp"
+        android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/image_shape_gray"
         android:contentDescription="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modeBackground"
         tools:ignore="UnusedAttribute" />
 
     <TextView
@@ -104,6 +105,57 @@
             android:text="@string/seconds90" />
     </RadioGroup>
 
+    <!-- category -->
+    <ImageView
+        android:id="@+id/categoryBackground"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/image_shape_gray"
+        android:contentDescription="@null"
+        app:layout_constraintTop_toBottomOf="@+id/timeBackground"
+        tools:ignore="UnusedAttribute" />
+
+    <TextView
+        android:id="@+id/categoryHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/categoryTitle"
+        app:layout_constraintStart_toStartOf="@+id/categoryBackground"
+        app:layout_constraintTop_toTopOf="@+id/categoryBackground" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/categoryBackground"
+        app:layout_constraintTop_toBottomOf="@+id/categoryHeader">
+
+        <RadioButton
+            android:id="@+id/radioButtonActor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/actor" />
+
+        <RadioButton
+            android:id="@+id/radioButtonAthlete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/athlete" />
+
+        <RadioButton
+            android:id="@+id/radioButtonSinger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/singer" />
+    </RadioGroup>
+
     <Button
         android:id="@+id/buttonSettingBack"
         android:layout_width="270dp"
@@ -114,8 +166,8 @@
         android:onClick="onButtonSettingsBackToMain"
         android:text="@string/back"
         android:textAllCaps="false"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modeBackground" />
+        app:layout_constraintTop_toBottomOf="@+id/categoryBackground"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

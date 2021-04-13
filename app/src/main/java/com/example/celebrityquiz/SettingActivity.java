@@ -9,28 +9,32 @@ import android.widget.RadioGroup;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingActivity extends AppCompatActivity {
-    private RadioGroup modeRadioGroup;
+    private RadioGroup radioGroupMode;
     private RadioGroup radioGroupTime;
+    private RadioGroup radioGroupCategory;
     private RadioButton radioButtonModeOne;
     private RadioButton radioButtonModeTwo;
     private RadioButton radioButton30;
     private RadioButton radioButton60;
     private RadioButton radioButton90;
+    private RadioButton radioButtonActor;
+    private RadioButton radioButtonAthlete;
+    private RadioButton radioButtonSinger;
 
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        modeRadioGroup = findViewById(R.id.modeRadioGroup);
+        radioGroupMode = findViewById(R.id.radioGroupMode);
         radioGroupTime = findViewById(R.id.radioGroupTime);
-        // Define Level views
+        radioGroupCategory = findViewById(R.id.radioGroupCategory);
+
         radioButtonModeOne = findViewById(R.id.radioButtonModeOne);
         radioButtonModeTwo = findViewById(R.id.radioButtonModeTwo);
         radioButtonModeOne.setChecked(false);
         radioButtonModeTwo.setChecked(false);
 
-        // Define Time views
         radioButton30 = findViewById(R.id.radioButton30);
         radioButton60 = findViewById(R.id.radioButton60);
         radioButton90 = findViewById(R.id.radioButton90);
@@ -38,9 +42,17 @@ public class SettingActivity extends AppCompatActivity {
         radioButton60.setChecked(false);
         radioButton90.setChecked(false);
 
+        radioButtonActor = findViewById(R.id.radioButtonActor);
+        radioButtonAthlete = findViewById(R.id.radioButtonAthlete);
+        radioButtonSinger = findViewById(R.id.radioButtonSinger);
+        radioButtonActor.setChecked(false);
+        radioButtonAthlete.setChecked(false);
+        radioButtonSinger.setChecked(false);
+
         SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
         String mode = sf.getString("mode", "객관식");
         int seconds = sf.getInt("seconds", 60);
+        String category = sf.getString("category", "배우");
         switch (mode) {
             case "객관식":
                 radioButtonModeOne.setChecked(true);
@@ -60,7 +72,18 @@ public class SettingActivity extends AppCompatActivity {
                 radioButton90.setChecked(true);
                 break;
         }
-        modeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        switch (category) {
+            case "배우":
+                radioButtonActor.setChecked(true);
+                break;
+            case "운동선수":
+                radioButtonAthlete.setChecked(true);
+                break;
+            case "가수":
+                radioButtonSinger.setChecked(true);
+                break;
+        }
+        radioGroupMode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
@@ -78,11 +101,25 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sf.edit();
                 if(checkedId == R.id.radioButton30)
-                    editor.putInt("seconds", 301);
+                    editor.putInt("seconds", 30);
                 else if(checkedId == R.id.radioButton60)
                     editor.putInt("seconds", 60);
                 else if(checkedId == R.id.radioButton90)
                     editor.putInt("seconds", 90);
+                editor.commit();
+            }
+        });
+        radioGroupCategory.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sf.edit();
+                if(checkedId == R.id.radioButtonActor)
+                    editor.putString("category", "배우");
+                else if(checkedId == R.id.radioButtonAthlete)
+                    editor.putString("category", "운동선수");
+                else if(checkedId == R.id.radioButtonSinger)
+                    editor.putString("category", "가수");
                 editor.commit();
             }
         });

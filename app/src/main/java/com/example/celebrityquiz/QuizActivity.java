@@ -1,6 +1,8 @@
 package com.example.celebrityquiz;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Gravity;
@@ -44,7 +46,7 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton radioButtonFour;
     private Button buttonPrevious;
     private Button buttonNext;
-    private Button HINT;
+    private Button buttonHint;
     private TextView textTime;
     private CountDownTimer countDownTimer;
 
@@ -64,7 +66,7 @@ public class QuizActivity extends AppCompatActivity {
         radioButtonTwo = findViewById(R.id.radioButtonTwo);
         radioButtonThree = findViewById(R.id.radioButtonThree);
         radioButtonFour = findViewById(R.id.radioButtonFour);
-        HINT = findViewById(R.id.buttonHint);
+        buttonHint = findViewById(R.id.buttonHint);
 
         textTime = findViewById(R.id.textTime);
 
@@ -101,14 +103,14 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        HINT.setOnClickListener(new View.OnClickListener() {
+        buttonHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast myToast = Toast.makeText(QuizActivity.this, "hint here", Toast.LENGTH_LONG);
                 myToast.show();
                 myToast.setGravity(Gravity.TOP, 300, 200);
 
-                HINT.setVisibility(View.INVISIBLE);
+                buttonHint.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -116,42 +118,76 @@ public class QuizActivity extends AppCompatActivity {
         buttonNext = findViewById(R.id.buttonNext);
         buttonPrevious = findViewById(R.id.buttonPrevious);
 
-        // Access intent interface and get variables
-        Intent intent = getIntent();
-        int level = intent.getIntExtra("level", 0);
-        seconds = intent.getIntExtra("seconds", 30);
-        String string = null;
+        SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
+        String mode = sf.getString("mode", "객관식");
+        seconds = sf.getInt("seconds", 60);
+        String category = sf.getString("category", "배우");
 
-        // Safely read data from saved file
-        try {
-            FileInputStream fileInputStream = openFileInput("myJson");
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-            string = stringBuilder.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
+        int iter = 0;
+        switch (category) {
+            case "배우":
+                break;
+            case "운동선수":
+                iter = 3;
+                break;
+            case "가수":
+                iter = 6;
+                break;
         }
+        int end = iter + 3;
+        ArrayList<Quiz> list = new ArrayList<>();
+        for(; iter < end; iter++) {
+            Resources res = getResources();
+            String[] questions = res.getStringArray(R.array.questions);
+            String[] imageUrls = res.getStringArray(R.array.imageUrls);
+            String[] select1 = res.getStringArray(R.array.select1);
+            String[] select2 = res.getStringArray(R.array.select2);
+            String[] select3 = res.getStringArray(R.array.select3);
+            String[] select4 = res.getStringArray(R.array.select4);
+            int[] correctAnswers = res.getIntArray(R.array.correctAnswers);
+            int[] userAnswers = res.getIntArray(R.array.userAnswers);
+            String[] hints = res.getStringArray(R.array.hints);
 
-        Gson gson = new Gson();
-        Type type = new TypeToken<List<Quiz>>(){}.getType();
-        List<Quiz> list = gson.fromJson(string, type);
-
-        // Set sublist based on user set level
-        if (level == 1) {
-            assert list != null;
-            quizList = list.subList(0, 5);
-        } else if (level == 2) {
-            assert list != null;
-            quizList = list.subList(5, 10);
-        } else {
-            assert list != null;
-            quizList = list.subList(10, 15);
+            list.add(new Quiz(questions[iter], imageUrls[iter], select1[iter], select2[iter], select3[iter],
+                    select4[iter], correctAnswers[iter], userAnswers[iter], hints[iter]));
         }
+        quizList = list;
+//        // Access intent interface and get variables
+//        Intent intent = getIntent();
+//        int level = intent.getIntExtra("level", 0);
+//        seconds = intent.getIntExtra("seconds", 30);
+//        String string = null;
+//
+//        //Safely read data from saved file
+//        try {
+//            FileInputStream fileInputStream = openFileInput("myJson");
+//            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
+//            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+//            StringBuilder stringBuilder = new StringBuilder();
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                stringBuilder.append(line);
+//            }
+//            string = stringBuilder.toString();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        Gson gson = new Gson();
+//        Type type = new TypeToken<List<Quiz>>(){}.getType();
+//        List<Quiz> list = gson.fromJson(string, type);
+//
+//        // Set sublist based on user set level
+//        if (level == 1) {
+//            assert list != null;
+//            quizList = list.subList(0, 5);
+//        } else if (level == 2) {
+//            assert list != null;
+//            quizList = list.subList(5, 10);
+//        } else {
+//            assert list != null;
+//            quizList = list.subList(10, 15);
+//        }
 
         // initialise and set for each index in current activity as current question
         indexCurrentQuestion = 0;

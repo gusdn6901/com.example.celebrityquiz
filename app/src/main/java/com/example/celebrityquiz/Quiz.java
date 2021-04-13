@@ -11,12 +11,12 @@ public class Quiz implements Serializable {
     String two;
     String three;
     String four;
-    String hint;
     int correctAnswer;
     int userAnswer;
+    String hint;
 
     Quiz(String question, String imageUrl, String one, String two,
-         String three, String four, int correctAnswer, int userAnswer) {
+         String three, String four, int correctAnswer, int userAnswer, String hint) {
         this.question = question;
         this.imageUrl = imageUrl;
         this.one = one;
@@ -25,5 +25,6 @@ public class Quiz implements Serializable {
         this.four = four;
         this.correctAnswer = correctAnswer;
         this.userAnswer = userAnswer;
+        this.hint = hint;
     }
 }

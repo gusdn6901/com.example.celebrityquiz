@@ -15,6 +15,11 @@
     <string name="seconds60">60 Seconds</string>
     <string name="seconds90">90 Seconds</string>
 
+    <string name="categoryTitle">Choose Category</string>
+    <string name="actor">actor</string>
+    <string name="athlete">athlete</string>
+    <string name="singer">singer</string>
+
     <string name="scoreContent">This is your score</string>
     <string name="scoreHeader">Score</string>
 
