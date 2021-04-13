@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonUpdate = findViewById(R.id.buttonUpdate);
         buttonGoStage = findViewById(R.id.buttonGoStage);
         buttonUpdate.setEnabled(true);
-        buttonGoStage.setEnabled(false);
+        buttonGoStage.setEnabled(true);
         downloadTask = null; // Always initialize task to null
     }
 
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButtonRecord(View view) {
-        Intent intent = new Intent(this, RecordActivity.class);
+        Intent intent = new Intent(this, FavoriteActivity.class);
         startActivity(intent);
     }
 }

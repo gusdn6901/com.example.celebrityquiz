@@ -14,6 +14,7 @@ public class Quiz implements Serializable {
     String four;
     int correctAnswer;
     int userAnswer;
+    String userTextAnswer;
     String hint;
 
     Quiz(int number, String question, String imageUrl, String one, String two,

@@ -1,7 +1,6 @@
 package com.example.celebrityquiz;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -19,12 +18,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class SolutionAdapter extends RecyclerView.Adapter {
+public class FavoriteAdapter extends RecyclerView.Adapter {
     private List<Quiz> quizList;
     private Context context;
 
     // Constructor to initialize all arrayList
-    SolutionAdapter(List<Quiz> quizList, Context context) {
+    FavoriteAdapter(List<Quiz> quizList, Context context) {
         this.quizList = quizList;
         this.context = context;
     }
@@ -34,7 +33,7 @@ public class SolutionAdapter extends RecyclerView.Adapter {
     // Build view layout and call ViewHolder, QuizHolder class
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View layoutInflater = LayoutInflater.from(context).
-                inflate(R.layout.solution, viewGroup, false);
+                inflate(R.layout.favorite, viewGroup, false);
         return new RecyclerView.ViewHolder(layoutInflater) {};
     }
 
@@ -56,7 +55,6 @@ public class SolutionAdapter extends RecyclerView.Adapter {
         SharedPreferences sf = context.getSharedPreferences("setting", Context.MODE_PRIVATE);
         String mode = sf.getString("mode", "객관식");
         if(mode.equals("객관식")) {
-            userAnswer.setVisibility(View.GONE);
             correctAnswer.setVisibility(View.GONE);
 
             if(!quizList.isEmpty()) {
@@ -75,52 +73,19 @@ public class SolutionAdapter extends RecyclerView.Adapter {
                  * userAnswer is wrong, mark userAnswer red, locate
                  * correctAnswer and mark it green.
                  */
-                if (quiz.userAnswer == quiz.correctAnswer) {
-                    if (1 == quiz.correctAnswer) {
-                        radioButtonOne.setChecked(true);
-                        radioButtonOne.setTextColor(Color.parseColor("#FF0BA512"));
-                    } else if (2 == quiz.correctAnswer) {
-                        radioButtonTwo.setChecked(true);
-                        radioButtonTwo.setTextColor(Color.parseColor("#FF0BA512"));
-                    } else if (3 == quiz.correctAnswer) {
-                        radioButtonThree.setChecked(true);
-                        radioButtonThree.setTextColor(Color.parseColor("#FF0BA512"));
-                    } else if (4 == quiz.correctAnswer) {
-                        radioButtonFour.setChecked(true);
-                        radioButtonFour.setTextColor(Color.parseColor("#FF0BA512"));
-                    }
-                } else {
-                    if (1 == quiz.userAnswer) {
-                        radioButtonOne.setChecked(true);
-                        radioButtonOne.setTextColor(Color.RED);
-                    }
-                    if (1 == quiz.correctAnswer) {
-                        radioButtonOne.setTextColor(Color.parseColor("#FF0BA512"));
-                    }
 
-                    if (2 == quiz.userAnswer) {
-                        radioButtonTwo.setChecked(true);
-                        radioButtonTwo.setTextColor(Color.RED);
-                    }
-                    if (2 == quiz.correctAnswer) {
-                        radioButtonTwo.setTextColor(Color.parseColor("#FF0BA512"));
-                    }
-
-                    if (3 == quiz.userAnswer) {
-                        radioButtonThree.setChecked(true);
-                        radioButtonThree.setTextColor(Color.RED);
-                    }
-                    if (3 == quiz.correctAnswer) {
-                        radioButtonThree.setTextColor(Color.parseColor("#FF0BA512"));
-                    }
-
-                    if (4 == quiz.userAnswer) {
-                        radioButtonFour.setChecked(true);
-                        radioButtonFour.setTextColor(Color.RED);
-                    }
-                    if (4 == quiz.correctAnswer) {
-                        radioButtonFour.setTextColor(Color.parseColor("#FF0BA512"));
-                    }
+                if (1 == quiz.correctAnswer) {
+                    radioButtonOne.setChecked(true);
+                    radioButtonOne.setTextColor(Color.parseColor("#FF0BA512"));
+                } else if (2 == quiz.correctAnswer) {
+                    radioButtonTwo.setChecked(true);
+                    radioButtonTwo.setTextColor(Color.parseColor("#FF0BA512"));
+                } else if (3 == quiz.correctAnswer) {
+                    radioButtonThree.setChecked(true);
+                    radioButtonThree.setTextColor(Color.parseColor("#FF0BA512"));
+                } else if (4 == quiz.correctAnswer) {
+                    radioButtonFour.setChecked(true);
+                    radioButtonFour.setTextColor(Color.parseColor("#FF0BA512"));
                 }
                 if (0 == quiz.userAnswer) radioGroup.clearCheck();
 
@@ -132,7 +97,7 @@ public class SolutionAdapter extends RecyclerView.Adapter {
             }
         }
         else if(mode.equals("주관식")) {
-                radioGroup.setVisibility(View.GONE);
+            radioGroup.setVisibility(View.GONE);
 
             if(!quizList.isEmpty()) {
                 Quiz quiz = quizList.get(position);
@@ -155,7 +120,6 @@ public class SolutionAdapter extends RecyclerView.Adapter {
                         answerString = quiz.four;
                         break;
                 }
-                userAnswer.setText("Your answer is " + (quiz.userTextAnswer == null ? "" : quiz.userTextAnswer));
                 correctAnswer.setText("The answer is " + answerString);
                 if(quiz.userTextAnswer != null)
                     if(quiz.userTextAnswer.equals(answerString)) userAnswer.setTextColor(Color.parseColor("#FF0BA512"));

@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -44,6 +45,7 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton radioButtonTwo;
     private RadioButton radioButtonThree;
     private RadioButton radioButtonFour;
+    private EditText editTextAnswer;
     private Button buttonPrevious;
     private Button buttonNext;
     private Button buttonHint;
@@ -66,9 +68,22 @@ public class QuizActivity extends AppCompatActivity {
         radioButtonTwo = findViewById(R.id.radioButtonTwo);
         radioButtonThree = findViewById(R.id.radioButtonThree);
         radioButtonFour = findViewById(R.id.radioButtonFour);
+        editTextAnswer = findViewById(R.id.editTextAnswer);
         buttonHint = findViewById(R.id.buttonHint);
-
         textTime = findViewById(R.id.textTime);
+        // Define button views
+        buttonNext = findViewById(R.id.buttonNext);
+        buttonPrevious = findViewById(R.id.buttonPrevious);
+
+        SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
+        String mode = sf.getString("mode", "객관식");
+        seconds = sf.getInt("seconds", 60);
+        String category = sf.getString("category", "배우");
+
+        if(mode.equals("객관식"))
+            editTextAnswer.setVisibility(View.GONE);
+        else if(mode.equals("주관식"))
+            radioGroup.setVisibility(View.GONE);
 
         // setOnClickListener and set checked onClick for each button
         radioButtonOne.setOnClickListener(new View.OnClickListener() {
@@ -103,57 +118,61 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        buttonHint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast myToast = Toast.makeText(QuizActivity.this, "hint here", Toast.LENGTH_LONG);
-                myToast.show();
-                myToast.setGravity(Gravity.TOP, 300, 200);
-
-                buttonHint.setVisibility(View.INVISIBLE);
-            }
-        });
-
-        // Define button views
-        buttonNext = findViewById(R.id.buttonNext);
-        buttonPrevious = findViewById(R.id.buttonPrevious);
-
-        SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
-        String mode = sf.getString("mode", "객관식");
-        seconds = sf.getInt("seconds", 60);
-        String category = sf.getString("category", "배우");
+        Intent intent = getIntent();
+        int stage = intent.getIntExtra("stage", 1);
 
         int iter = 0;
         switch (category) {
             case "배우":
                 break;
             case "운동선수":
-                iter = 3;
+                iter = 9;
                 break;
             case "가수":
-                iter = 6;
+                iter = 18;
+                break;
+        }
+        switch (stage) {
+            case 1:
+                break;
+            case 2:
+                iter += 3;
+                break;
+            case 3:
+                iter += 6;
                 break;
         }
         int end = iter + 3;
+
         ArrayList<Quiz> list = new ArrayList<>();
+        Resources res = getResources();
+        int[] numbers = res.getIntArray(R.array.numbers);
+        String[] questions = res.getStringArray(R.array.questions);
+        String[] imageUrls = res.getStringArray(R.array.imageUrls);
+        String[] select1 = res.getStringArray(R.array.select1);
+        String[] select2 = res.getStringArray(R.array.select2);
+        String[] select3 = res.getStringArray(R.array.select3);
+        String[] select4 = res.getStringArray(R.array.select4);
+        int[] correctAnswers = res.getIntArray(R.array.correctAnswers);
+        int[] userAnswers = res.getIntArray(R.array.userAnswers);
+        final String[] hints = res.getStringArray(R.array.hints);
         for(; iter < end; iter++) {
-            Resources res = getResources();
-
-            int[] numbers = res.getIntArray(R.array.numbers);
-            String[] questions = res.getStringArray(R.array.questions);
-            String[] imageUrls = res.getStringArray(R.array.imageUrls);
-            String[] select1 = res.getStringArray(R.array.select1);
-            String[] select2 = res.getStringArray(R.array.select2);
-            String[] select3 = res.getStringArray(R.array.select3);
-            String[] select4 = res.getStringArray(R.array.select4);
-            int[] correctAnswers = res.getIntArray(R.array.correctAnswers);
-            int[] userAnswers = res.getIntArray(R.array.userAnswers);
-            String[] hints = res.getStringArray(R.array.hints);
-
             list.add(new Quiz(numbers[iter],questions[iter], imageUrls[iter], select1[iter], select2[iter], select3[iter],
                     select4[iter], correctAnswers[iter], userAnswers[iter], hints[iter]));
         }
         quizList = list;
+
+        buttonHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String hint = hints[indexCurrentQuestion];
+                Toast myToast = Toast.makeText(QuizActivity.this, hint, Toast.LENGTH_LONG);
+                myToast.show();
+                myToast.setGravity(Gravity.TOP, 300, 200);
+
+                buttonHint.setVisibility(View.INVISIBLE);
+            }
+        });
 //        // Access intent interface and get variables
 //        Intent intent = getIntent();
 //        int level = intent.getIntExtra("level", 0);
@@ -206,6 +225,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 stopTimer();
+                finish();
                 Intent i = new Intent(QuizActivity.this, SolutionActivity.class);
                 i.putExtra("score", getScore());
                 // Change List to ArrayList to accommodate subList
@@ -253,8 +273,10 @@ public class QuizActivity extends AppCompatActivity {
             if(indexCurrentQuestion == 0) buttonPrevious.setEnabled(false);
             if(indexCurrentQuestion != (quizList.size() - 1)) buttonNext.setEnabled(true);
             Quiz currentQuestion = quizList.get(indexCurrentQuestion);
+            quizList.get(indexCurrentQuestion+1).userTextAnswer = editTextAnswer.getText().toString();
             currentQuestionView(currentQuestion);
 
+            editTextAnswer.setText(currentQuestion.userTextAnswer);
             radioGroup = findViewById(R.id.celebrityOption);
             if(currentQuestion.userAnswer == 0) radioGroup.clearCheck();
             else {
@@ -287,8 +309,10 @@ public class QuizActivity extends AppCompatActivity {
             if(indexCurrentQuestion == (quizList.size() - 1)) buttonNext.setEnabled(false);
             if(indexCurrentQuestion != 0) buttonPrevious.setEnabled(true);
             Quiz currentQuestion = quizList.get(indexCurrentQuestion);
+            quizList.get(indexCurrentQuestion-1).userTextAnswer = editTextAnswer.getText().toString();
             currentQuestionView(currentQuestion);
 
+            editTextAnswer.setText(currentQuestion.userTextAnswer);
             radioGroup = findViewById(R.id.celebrityOption);
             if(currentQuestion.userAnswer == 0) radioGroup.clearCheck();
             else {
@@ -320,17 +344,42 @@ public class QuizActivity extends AppCompatActivity {
         radioButtonTwo.setText(currentQuestion.two);
         radioButtonThree.setText(currentQuestion.three);
         radioButtonFour.setText(currentQuestion.four);
+        editTextAnswer.setText(currentQuestion.userTextAnswer);
         Glide.with(imageView.getContext()).load(currentQuestion.imageUrl).into(imageView);
     }
 
     // Calculate score
     public int getScore() {
         int score = 0;
-        for (int i = 0; i < quizList.size(); i++) {
-            if (quizList.get(i).userAnswer == quizList.get(i).correctAnswer) score++;
+        SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
+        String mode = sf.getString("mode", "객관식");
+
+        if (mode.equals("객관식")) {
+            for (int i = 0; i < quizList.size(); i++)
+                if (quizList.get(i).userAnswer == quizList.get(i).correctAnswer) score++;
+        } else if (mode.equals("주관식")) {
+            for (int i = 0; i < quizList.size(); i++) {
+                String answerString = "";
+                switch (quizList.get(i).correctAnswer) {
+                    case 1:
+                        answerString = quizList.get(i).one;
+                        break;
+                    case 2:
+                        answerString = quizList.get(i).two;
+                        break;
+                    case 3:
+                        answerString = quizList.get(i).three;
+                        break;
+                    case 4:
+                        answerString = quizList.get(i).four;
+                        break;
+                }
+                if(answerString.equals(quizList.get(i).userTextAnswer)) score++;
+            }
         }
         return score;
     }
+
     public void onButtonStar(View view){
         SharedPreferences sf = getSharedPreferences("starboolean",MODE_PRIVATE);
         boolean starchecked = sf.getBoolean(Integer.toString(quizList.get(indexCurrentQuestion).number), false);
