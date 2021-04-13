@@ -3,12 +3,14 @@ package com.example.celebrityquiz;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,6 +44,7 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton radioButtonFour;
     private Button buttonPrevious;
     private Button buttonNext;
+    private Button HINT;
     private TextView textTime;
     private CountDownTimer countDownTimer;
 
@@ -61,6 +64,8 @@ public class QuizActivity extends AppCompatActivity {
         radioButtonTwo = findViewById(R.id.radioButtonTwo);
         radioButtonThree = findViewById(R.id.radioButtonThree);
         radioButtonFour = findViewById(R.id.radioButtonFour);
+        HINT = findViewById(R.id.buttonHint);
+
         textTime = findViewById(R.id.textTime);
 
         // setOnClickListener and set checked onClick for each button
@@ -93,6 +98,17 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ((RadioButton) view).setChecked(true);
                 quizList.get(indexCurrentQuestion).userAnswer = 4;
+            }
+        });
+
+        HINT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast myToast = Toast.makeText(QuizActivity.this, "hint here", Toast.LENGTH_LONG);
+                myToast.show();
+                myToast.setGravity(Gravity.TOP, 300, 200);
+
+                HINT.setVisibility(View.INVISIBLE);
             }
         });
 

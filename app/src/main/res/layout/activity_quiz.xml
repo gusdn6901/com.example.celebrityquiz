@@ -132,4 +132,16 @@
         app:layout_constraintEnd_toEndOf="@+id/scoreViewBackground"
         app:layout_constraintStart_toStartOf="@id/scoreViewBackground"/>
 
+    <Button
+        android:id="@+id/buttonHint"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:text="?"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="20dp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

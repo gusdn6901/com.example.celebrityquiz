@@ -11,6 +11,7 @@ public class Quiz implements Serializable {
     String two;
     String three;
     String four;
+    String hint;
     int correctAnswer;
     int userAnswer;
 
