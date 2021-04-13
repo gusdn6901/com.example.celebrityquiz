@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <!-- Question view -->
     <TextView
         android:id="@+id/celebrityQuestion"
         android:layout_width="match_parent"
@@ -61,18 +60,6 @@
             android:layout_height="wrap_content" />
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/userAnswer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:textAlignment="center"
-        android:textColor="#ff0000"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"/>
     <!-- CorrectAnswer view -->
     <TextView
         android:id="@+id/correctAnswer"
@@ -90,5 +77,4 @@
 
     <View style="@style/HorizontalDivider"
         android:id="@+id/horizontalDivider"/>
-
 </LinearLayout>

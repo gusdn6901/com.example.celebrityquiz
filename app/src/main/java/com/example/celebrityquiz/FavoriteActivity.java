@@ -39,10 +39,9 @@ public class FavoriteActivity extends AppCompatActivity {
             }
         }
         RecyclerView recyclerView = findViewById(R.id.favoriteRecyclerView);
-        SolutionAdapter solutionAdapter = new SolutionAdapter(list, this);
+        FavoriteAdapter favoriteAdapter = new FavoriteAdapter(list, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(solutionAdapter);
-
+        recyclerView.setAdapter(favoriteAdapter);
     }
     public void onButtonFavoriteBackToMain(View view) { finish(); }
 

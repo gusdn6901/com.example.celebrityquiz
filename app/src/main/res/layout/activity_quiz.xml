@@ -61,28 +61,53 @@
         <RadioButton
             android:id="@+id/radioButtonFour"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
     </RadioGroup>
+
+    <EditText
+        android:id="@+id/editTextAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/celebrityImage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <View
+        android:id="@+id/horizontalLine"
+        android:layout_width="wrap_content"
+        android:layout_height="4dp"
+        android:layout_marginTop="420dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/buttonPrevious"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
         android:background="@drawable/button_rounded"
         android:elevation="2dp"
         android:onClick="onButtonPrevious"
         android:text="@string/previous"
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/celebrityOption" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalLine" />
 
     <Button
         android:id="@+id/buttonNext"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/button_rounded"
         android:elevation="2dp"
@@ -90,7 +115,7 @@
         android:text="@string/next"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/celebrityOption" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalLine" />
 
     <Button
         android:id="@+id/buttonSubmit"
