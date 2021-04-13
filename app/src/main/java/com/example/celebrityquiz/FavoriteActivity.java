@@ -12,40 +12,38 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-//기록이랑() 즐겨찾기확인부분
-public class RecordActivity extends AppCompatActivity {
+public class FavoriteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_record);
+        setContentView(R.layout.activity_favorite);
 
         SharedPreferences sf = getSharedPreferences("starboolean", MODE_PRIVATE);
         List<Quiz> list = new ArrayList<>();
-        for(int i =1;i<=27;i++){
+        Resources res = getResources();
+        int[] numbers = res.getIntArray(R.array.numbers);
+        String[] questions = res.getStringArray(R.array.questions);
+        String[] imageUrls = res.getStringArray(R.array.imageUrls);
+        String[] select1 = res.getStringArray(R.array.select1);
+        String[] select2 = res.getStringArray(R.array.select2);
+        String[] select3 = res.getStringArray(R.array.select3);
+        String[] select4 = res.getStringArray(R.array.select4);
+        int[] correctAnswers = res.getIntArray(R.array.correctAnswers);
+        int[] userAnswers = res.getIntArray(R.array.userAnswers);
+        String[] hints = res.getStringArray(R.array.hints);
+        for(int i = 1;i<=27;i++){
             if(sf.getBoolean(Integer.toString(i), false)) {
-                Resources res = getResources();
-                int[] numbers = res.getIntArray(R.array.numbers);
-                String[] questions = res.getStringArray(R.array.questions);
-                String[] imageUrls = res.getStringArray(R.array.imageUrls);
-                String[] select1 = res.getStringArray(R.array.select1);
-                String[] select2 = res.getStringArray(R.array.select2);
-                String[] select3 = res.getStringArray(R.array.select3);
-                String[] select4 = res.getStringArray(R.array.select4);
-                int[] correctAnswers = res.getIntArray(R.array.correctAnswers);
-                int[] userAnswers = res.getIntArray(R.array.userAnswers);
-                String[] hints = res.getStringArray(R.array.hints);
-
                 list.add(new Quiz(numbers[i-1],questions[i-1], imageUrls[i-1], select1[i-1], select2[i-1], select3[i-1],
                         select4[i-1], correctAnswers[i-1], userAnswers[i-1], hints[i-1]));
             }
         }
-        RecyclerView recyclerView = findViewById(R.id.recordRecyclerView);
+        RecyclerView recyclerView = findViewById(R.id.favoriteRecyclerView);
         SolutionAdapter solutionAdapter = new SolutionAdapter(list, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(solutionAdapter);
 
     }
-    public void onButtonRecordBackToMain(View view) { finish(); }
+    public void onButtonFavoriteBackToMain(View view) { finish(); }
 
 }

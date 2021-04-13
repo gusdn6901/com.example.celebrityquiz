@@ -118,38 +118,53 @@ public class QuizActivity extends AppCompatActivity {
         buttonNext = findViewById(R.id.buttonNext);
         buttonPrevious = findViewById(R.id.buttonPrevious);
 
+
         SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
         String mode = sf.getString("mode", "객관식");
         seconds = sf.getInt("seconds", 60);
         String category = sf.getString("category", "배우");
+        Intent intent = getIntent();
+        int stage = intent.getIntExtra("stage", 1);
 
         int iter = 0;
         switch (category) {
             case "배우":
                 break;
             case "운동선수":
-                iter = 3;
+                iter = 9;
                 break;
             case "가수":
-                iter = 6;
+                iter = 18;
+                break;
+        }
+        switch (stage) {
+            case 1:
+                break;
+            case 2:
+                iter += 3;
+                break;
+            case 3:
+                iter += 6;
                 break;
         }
         int end = iter + 3;
+        System.out.println(" --------------- fdfaasdf-----------------------  ");
+        System.out.println("stage: " + stage);
+        System.out.println("iter: " + iter);
+
         ArrayList<Quiz> list = new ArrayList<>();
+        Resources res = getResources();
+        int[] numbers = res.getIntArray(R.array.numbers);
+        String[] questions = res.getStringArray(R.array.questions);
+        String[] imageUrls = res.getStringArray(R.array.imageUrls);
+        String[] select1 = res.getStringArray(R.array.select1);
+        String[] select2 = res.getStringArray(R.array.select2);
+        String[] select3 = res.getStringArray(R.array.select3);
+        String[] select4 = res.getStringArray(R.array.select4);
+        int[] correctAnswers = res.getIntArray(R.array.correctAnswers);
+        int[] userAnswers = res.getIntArray(R.array.userAnswers);
+        String[] hints = res.getStringArray(R.array.hints);
         for(; iter < end; iter++) {
-            Resources res = getResources();
-
-            int[] numbers = res.getIntArray(R.array.numbers);
-            String[] questions = res.getStringArray(R.array.questions);
-            String[] imageUrls = res.getStringArray(R.array.imageUrls);
-            String[] select1 = res.getStringArray(R.array.select1);
-            String[] select2 = res.getStringArray(R.array.select2);
-            String[] select3 = res.getStringArray(R.array.select3);
-            String[] select4 = res.getStringArray(R.array.select4);
-            int[] correctAnswers = res.getIntArray(R.array.correctAnswers);
-            int[] userAnswers = res.getIntArray(R.array.userAnswers);
-            String[] hints = res.getStringArray(R.array.hints);
-
             list.add(new Quiz(numbers[iter],questions[iter], imageUrls[iter], select1[iter], select2[iter], select3[iter],
                     select4[iter], correctAnswers[iter], userAnswers[iter], hints[iter]));
         }

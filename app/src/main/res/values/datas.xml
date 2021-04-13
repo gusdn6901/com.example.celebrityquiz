@@ -33,32 +33,32 @@
         <item>actor question 1</item>
         <item>actor question 2</item>
         <item>actor question 3</item>
-        <item>athlete question 1</item>
-        <item>athlete question 2</item>
-        <item>athlete question 3</item>
-        <item>singer question 1</item>
-        <item>singer question 2</item>
-        <item>singer question 3</item>
-        <item>actor question 1</item>
+        <item>actor question 4</item>
+        <item>actor question 5</item>
+        <item>actor question 6</item>
+        <item>actor question 7</item>
+        <item>actor question 8</item>
+        <item>actor question 9</item>
 
-        <item>actor question 2</item>
-        <item>actor question 3</item>
         <item>athlete question 1</item>
         <item>athlete question 2</item>
         <item>athlete question 3</item>
-        <item>singer question 1</item>
-        <item>singer question 2</item>
-        <item>singer question 3</item>
+        <item>athlete question 4</item>
+        <item>athlete question 5</item>
+        <item>athlete question 6</item>
+        <item>athlete question 7</item>
+        <item>athlete question 8</item>
+        <item>athlete question 9</item>
 
-        <item>actor question 1</item>
-        <item>actor question 2</item>
-        <item>actor question 3</item>
-        <item>athlete question 1</item>
-        <item>athlete question 2</item>
-        <item>athlete question 3</item>
         <item>singer question 1</item>
         <item>singer question 2</item>
         <item>singer question 3</item>
+        <item>singer question 4</item>
+        <item>singer question 5</item>
+        <item>singer question 6</item>
+        <item>singer question 7</item>
+        <item>singer question 8</item>
+        <item>singer question 9</item>
     </array>
 
     <array name="imageUrls">
@@ -98,123 +98,125 @@
         <item>actor 1-1</item>
         <item>actor 2-1</item>
         <item>actor 3-1</item>
+        <item>actor 4-1</item>
+        <item>actor 5-1</item>
+        <item>actor 6-1</item>
+        <item>actor 7-1</item>
+        <item>actor 8-1</item>
+        <item>actor 9-1</item>
+
         <item>athlete 1-1</item>
         <item>athlete 2-1</item>
         <item>athlete 3-1</item>
+        <item>athlete 4-1</item>
+        <item>athlete 5-1</item>
+        <item>athlete 6-1</item>
+        <item>athlete 7-1</item>
+        <item>athlete 8-1</item>
+        <item>athlete 9-1</item>
+
         <item>singer 1-1</item>
         <item>singer 2-1</item>
         <item>singer 3-1</item>
-        <item>actor 1-1</item>
-        <item>actor 2-1</item>
-        <item>actor 3-1</item>
-        <item>athlete 1-1</item>
-        <item>athlete 2-1</item>
-        <item>athlete 3-1</item>
-        <item>singer 1-1</item>
-        <item>singer 2-1</item>
-        <item>singer 3-1</item>
-        <item>actor 1-1</item>
-        <item>actor 2-1</item>
-        <item>actor 3-1</item>
-        <item>athlete 1-1</item>
-        <item>athlete 2-1</item>
-        <item>athlete 3-1</item>
-        <item>singer 1-1</item>
-        <item>singer 2-1</item>
-        <item>singer 3-1</item>
+        <item>singer 4-1</item>
+        <item>singer 5-1</item>
+        <item>singer 6-1</item>
+        <item>singer 7-1</item>
+        <item>singer 8-1</item>
+        <item>singer 9-1</item>
     </array>
     <array name="select2">
         <item>actor 1-2</item>
         <item>actor 2-2</item>
         <item>actor 3-2</item>
-        <item>athlete 1-2</item>
-        <item>athlete 2-2</item>
-        <item>athlete 3-2</item>
-        <item>singer 1-2</item>
-        <item>singer 2-2</item>
-        <item>singer 3-2</item>
+        <item>actor 4-2</item>
+        <item>actor 5-2</item>
+        <item>actor 6-2</item>
+        <item>actor 7-2</item>
+        <item>actor 8-2</item>
+        <item>actor 9-2</item>
 
-        <item>actor 1-2</item>
-        <item>actor 2-2</item>
-        <item>actor 3-2</item>
         <item>athlete 1-2</item>
         <item>athlete 2-2</item>
         <item>athlete 3-2</item>
-        <item>singer 1-2</item>
-        <item>singer 2-2</item>
-        <item>singer 3-2</item>
+        <item>athlete 4-2</item>
+        <item>athlete 5-2</item>
+        <item>athlete 6-2</item>
+        <item>athlete 7-2</item>
+        <item>athlete 8-2</item>
+        <item>athlete 9-2</item>
 
-        <item>actor 1-2</item>
-        <item>actor 2-2</item>
-        <item>actor 3-2</item>
-        <item>athlete 1-2</item>
-        <item>athlete 2-2</item>
-        <item>athlete 3-2</item>
         <item>singer 1-2</item>
         <item>singer 2-2</item>
         <item>singer 3-2</item>
+        <item>singer 4-2</item>
+        <item>singer 5-2</item>
+        <item>singer 6-2</item>
+        <item>singer 7-2</item>
+        <item>singer 8-2</item>
+        <item>singer 9-2</item>
     </array>
     <array name="select3">
         <item>actor 1-3</item>
         <item>actor 2-3</item>
         <item>actor 3-3</item>
-        <item>athlete 1-3</item>
-        <item>athlete 2-3</item>
-        <item>athlete 3-3</item>
-        <item>singer 1-3</item>
-        <item>singer 2-3</item>
-        <item>singer 3-3</item>
+        <item>actor 4-3</item>
+        <item>actor 5-3</item>
+        <item>actor 6-3</item>
+        <item>actor 7-3</item>
+        <item>actor 8-3</item>
+        <item>actor 9-3</item>
 
-        <item>actor 1-3</item>
-        <item>actor 2-3</item>
-        <item>actor 3-3</item>
         <item>athlete 1-3</item>
         <item>athlete 2-3</item>
         <item>athlete 3-3</item>
-        <item>singer 1-3</item>
-        <item>singer 2-3</item>
-        <item>singer 3-3</item>
+        <item>athlete 4-3</item>
+        <item>athlete 5-3</item>
+        <item>athlete 6-3</item>
+        <item>athlete 7-3</item>
+        <item>athlete 8-3</item>
+        <item>athlete 9-3</item>
 
-        <item>actor 1-3</item>
-        <item>actor 2-3</item>
-        <item>actor 3-3</item>
-        <item>athlete 1-3</item>
-        <item>athlete 2-3</item>
-        <item>athlete 3-3</item>
         <item>singer 1-3</item>
         <item>singer 2-3</item>
         <item>singer 3-3</item>
+        <item>singer 4-3</item>
+        <item>singer 5-3</item>
+        <item>singer 6-3</item>
+        <item>singer 7-3</item>
+        <item>singer 8-3</item>
+        <item>singer 9-3</item>
     </array>
     <array name="select4">
         <item>actor 1-4</item>
         <item>actor 2-4</item>
         <item>actor 3-4</item>
-        <item>athlete 1-4</item>
-        <item>athlete 2-4</item>
-        <item>athlete 3-4</item>
-        <item>singer 1-4</item>
-        <item>singer 2-4</item>
-        <item>singer 3-4</item>
+        <item>actor 4-4</item>
+        <item>actor 5-4</item>
+        <item>actor 6-4</item>
+        <item>actor 7-4</item>
+        <item>actor 8-4</item>
+        <item>actor 9-4</item>
 
-        <item>actor 1-4</item>
-        <item>actor 2-4</item>
-        <item>actor 3-4</item>
         <item>athlete 1-4</item>
         <item>athlete 2-4</item>
         <item>athlete 3-4</item>
-        <item>singer 1-4</item>
-        <item>singer 2-4</item>
-        <item>singer 3-4</item>
+        <item>athlete 4-4</item>
+        <item>athlete 5-4</item>
+        <item>athlete 6-4</item>
+        <item>athlete 7-4</item>
+        <item>athlete 8-4</item>
+        <item>athlete 9-4</item>
 
-        <item>actor 1-4</item>
-        <item>actor 2-4</item>
-        <item>actor 3-4</item>
-        <item>athlete 1-4</item>
-        <item>athlete 2-4</item>
-        <item>athlete 3-4</item>
         <item>singer 1-4</item>
         <item>singer 2-4</item>
         <item>singer 3-4</item>
+        <item>singer 4-4</item>
+        <item>singer 5-4</item>
+        <item>singer 6-4</item>
+        <item>singer 7-4</item>
+        <item>singer 8-4</item>
+        <item>singer 9-4</item>
     </array>
     <array name="correctAnswers">
         <item>1</item>
@@ -282,31 +284,31 @@
         <item>actor hint1</item>
         <item>actor hint2</item>
         <item>actor hint3</item>
-        <item>athlete hint1</item>
-        <item>athlete hint2</item>
-        <item>athlete hint3</item>
-        <item>singer hint1</item>
-        <item>singer hint2</item>
-        <item>singer hint3</item>
+        <item>actor hint4</item>
+        <item>actor hint5</item>
+        <item>actor hint6</item>
+        <item>actor hint7</item>
+        <item>actor hint8</item>
+        <item>actor hint9</item>
 
-        <item>actor hint1</item>
-        <item>actor hint2</item>
-        <item>actor hint3</item>
         <item>athlete hint1</item>
         <item>athlete hint2</item>
         <item>athlete hint3</item>
-        <item>singer hint1</item>
-        <item>singer hint2</item>
-        <item>singer hint3</item>
+        <item>athlete hint4</item>
+        <item>athlete hint5</item>
+        <item>athlete hint6</item>
+        <item>athlete hint7</item>
+        <item>athlete hint8</item>
+        <item>athlete hint9</item>
 
-        <item>actor hint1</item>
-        <item>actor hint2</item>
-        <item>actor hint3</item>
-        <item>athlete hint1</item>
-        <item>athlete hint2</item>
-        <item>athlete hint3</item>
         <item>singer hint1</item>
         <item>singer hint2</item>
         <item>singer hint3</item>
+        <item>singer hint4</item>
+        <item>singer hint5</item>
+        <item>singer hint6</item>
+        <item>singer hint7</item>
+        <item>singer hint8</item>
+        <item>singer hint9</item>
     </array>
 </resources>

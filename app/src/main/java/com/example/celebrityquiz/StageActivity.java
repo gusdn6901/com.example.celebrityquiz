@@ -15,8 +15,18 @@ public class StageActivity extends AppCompatActivity {
 
     public void onButtonStartQuiz(View view) {
         Intent intent = new Intent(this, QuizActivity.class);
-        intent.putExtra("level", "level1");
-        intent.putExtra("seconds", "60");
+        switch (view.getId()) {
+            case R.id.buttonStage1:
+                intent.putExtra("stage", 1);
+                break;
+            case R.id.buttonStage2:
+                intent.putExtra("stage", 2);
+                break;
+            case R.id.buttonStage3:
+                intent.putExtra("stage", 3);
+                break;
+        }
+
         startActivity(intent);
     }
 

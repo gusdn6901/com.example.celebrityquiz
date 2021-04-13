@@ -8,10 +8,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context=".RecordActivity">
+    tools:context=".FavoriteActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recordRecyclerView"
+        android:id="@+id/favoriteRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonRecordBack"
+        android:id="@+id/buttonFavoriteBack"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -27,7 +27,7 @@
         android:elevation="2dp"
         android:gravity="center"
         android:text="@string/back"
-        android:onClick="onButtonRecordBackToMain"
+        android:onClick="onButtonFavoriteBackToMain"
         android:textAllCaps="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
