@@ -155,6 +155,21 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonUpdate" />
+    <Button
+        android:id="@+id/buttonRecord"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_rounded"
+        android:elevation="2dp"
+        android:gravity="center"
+        android:text="Record"
+        android:onClick="onButtonRecord"
+        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSetting" />
 
     <Button
         android:id="@+id/buttonGoStage"
@@ -170,6 +185,6 @@
         android:textAllCaps="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSetting" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonRecord" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

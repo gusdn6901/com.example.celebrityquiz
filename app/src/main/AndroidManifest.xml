@@ -36,6 +36,9 @@
         <activity
             android:name="com.example.celebrityquiz.StageActivity"
             android:parentActivityName="com.example.celebrityquiz.MainActivity"/>
+        <activity
+            android:name="com.example.celebrityquiz.RecordActivity"
+            android:parentActivityName="com.example.celebrityquiz.MainActivity"/>
 
     </application>
 

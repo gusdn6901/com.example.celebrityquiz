@@ -126,4 +126,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingActivity.class);
         startActivity(intent);
     }
+
+    public void onButtonRecord(View view) {
+        Intent intent = new Intent(this, RecordActivity.class);
+        startActivity(intent);
+    }
 }
