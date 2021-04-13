@@ -30,6 +30,12 @@
             android:name="com.example.celebrityquiz.SolutionActivity"
             android:parentActivityName="com.example.celebrityquiz.MainActivity">
         </activity>
+        <activity
+            android:name="com.example.celebrityquiz.SettingActivity"
+            android:parentActivityName="com.example.celebrityquiz.MainActivity"/>
+        <activity
+            android:name="com.example.celebrityquiz.StageActivity"
+            android:parentActivityName="com.example.celebrityquiz.MainActivity"/>
 
     </application>
 

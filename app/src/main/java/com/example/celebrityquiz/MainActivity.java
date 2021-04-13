@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton radioButton60;
     private RadioButton radioButton90;
     private ProgressBar progressBarDownload;
-    private Button buttonStartQuiz;
+    private Button buttonGoStage;
     public int level;
     public int seconds;
 
@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Define Update and Starting buttons
         Button buttonUpdate = findViewById(R.id.buttonUpdate);
-        buttonStartQuiz = findViewById(R.id.buttonStartQuiz);
+        buttonGoStage = findViewById(R.id.buttonGoStage);
         buttonUpdate.setEnabled(true);
-        buttonStartQuiz.setEnabled(false);
+        buttonGoStage.setEnabled(false);
         downloadTask = null; // Always initialize task to null
     }
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         public void onSuccess() {
             downloadTask = null;
             progressBarDownload.setProgress(progressBarDownload.getMax());
-            buttonStartQuiz.setEnabled(true); // Enable Start button when download is successful
+            buttonGoStage.setEnabled(true); // Enable Start button when download is successful
         }
 
         @Override
@@ -102,19 +102,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void onButtonGoStage(View view) {
+        Intent intent = new Intent(this, StageActivity.class);
+        startActivity(intent);
+    }
     // Start QuizActivity with user settings/choices
-    public void onButtonStartQuiz(View view) {
-        if(radioButtonLevelOne.isChecked()) level = 1;
-        if(radioButtonLevelTwo.isChecked()) level = 2;
-        if(radioButtonLevelThree.isChecked()) level = 3;
+//    public void onButtonStartQuiz(View view) {
+//        if(radioButtonLevelOne.isChecked()) level = 1;
+//        if(radioButtonLevelTwo.isChecked()) level = 2;
+//        if(radioButtonLevelThree.isChecked()) level = 3;
+//
+//        if(radioButton30.isChecked()) seconds = 30;
+//        if(radioButton60.isChecked()) seconds = 60;
+//        if(radioButton90.isChecked()) seconds = 90;
+//
+//        Intent intent = new Intent(this, QuizActivity.class);
+//        intent.putExtra("level", level);
+//        intent.putExtra("seconds", seconds);
+//        startActivity(intent);
+//    }
 
-        if(radioButton30.isChecked()) seconds = 30;
-        if(radioButton60.isChecked()) seconds = 60;
-        if(radioButton90.isChecked()) seconds = 90;
-        
-        Intent intent = new Intent(this, QuizActivity.class);
-        intent.putExtra("level", level);
-        intent.putExtra("seconds", seconds);
+    public void onButtonSetting(View view) {
+        Intent intent = new Intent(this, SettingActivity.class);
         startActivity(intent);
     }
 }

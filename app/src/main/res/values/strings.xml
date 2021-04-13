@@ -2,8 +2,8 @@
 <resources>
     <!-- Titles/Utility -->
     <string name="app_name">Celebrity Quiz</string>
-    <string name="back" />
-    <string name="settings" />
+    <string name="back">Back</string>
+    <string name="settings">Settings</string>
 
     <string name="settingsTitle">Level of Difficulty</string>
     <string name="level1">Level One</string>

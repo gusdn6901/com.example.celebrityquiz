@@ -141,7 +141,23 @@
         app:layout_constraintTop_toBottomOf="@+id/levelBackground" />
 
     <Button
-        android:id="@+id/buttonStartQuiz"
+        android:id="@+id/buttonSetting"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_rounded"
+        android:elevation="2dp"
+        android:gravity="center"
+        android:text="@string/settings"
+        android:onClick="onButtonSetting"
+        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUpdate" />
+
+    <Button
+        android:id="@+id/buttonGoStage"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -149,11 +165,11 @@
         android:elevation="2dp"
         android:gravity="center"
         android:enabled="false"
-        android:onClick="onButtonStartQuiz"
-        android:text="@string/startQuiz"
+        android:onClick="onButtonGoStage"
+        android:text="Go Stage"
         android:textAllCaps="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonUpdate" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSetting" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
