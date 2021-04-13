@@ -144,4 +144,14 @@
         android:layout_marginRight="20dp"
         />
 
+    <Button
+        android:id="@+id/ButtonStar"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_gravity="right"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="20dp"
+        android:onClick="onButtonStar"
+        android:text="record" />
 </androidx.constraintlayout.widget.ConstraintLayout>

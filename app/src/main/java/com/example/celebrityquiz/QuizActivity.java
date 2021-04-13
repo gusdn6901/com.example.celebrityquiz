@@ -138,6 +138,8 @@ public class QuizActivity extends AppCompatActivity {
         ArrayList<Quiz> list = new ArrayList<>();
         for(; iter < end; iter++) {
             Resources res = getResources();
+
+            int[] numbers = res.getIntArray(R.array.numbers);
             String[] questions = res.getStringArray(R.array.questions);
             String[] imageUrls = res.getStringArray(R.array.imageUrls);
             String[] select1 = res.getStringArray(R.array.select1);
@@ -148,7 +150,7 @@ public class QuizActivity extends AppCompatActivity {
             int[] userAnswers = res.getIntArray(R.array.userAnswers);
             String[] hints = res.getStringArray(R.array.hints);
 
-            list.add(new Quiz(questions[iter], imageUrls[iter], select1[iter], select2[iter], select3[iter],
+            list.add(new Quiz(numbers[iter],questions[iter], imageUrls[iter], select1[iter], select2[iter], select3[iter],
                     select4[iter], correctAnswers[iter], userAnswers[iter], hints[iter]));
         }
         quizList = list;
@@ -328,5 +330,19 @@ public class QuizActivity extends AppCompatActivity {
             if (quizList.get(i).userAnswer == quizList.get(i).correctAnswer) score++;
         }
         return score;
+    }
+    public void onButtonStar(View view){
+        SharedPreferences sf = getSharedPreferences("starboolean",MODE_PRIVATE);
+        boolean starchecked = sf.getBoolean(Integer.toString(quizList.get(indexCurrentQuestion).number), false);
+
+        SharedPreferences.Editor editor = sf.edit();
+        if(starchecked){
+            editor.putBoolean(Integer.toString(quizList.get(indexCurrentQuestion).number), false);
+        }
+        else{
+            editor.putBoolean(Integer.toString(quizList.get(indexCurrentQuestion).number), true);
+        }
+        editor.commit();
+
     }
 }

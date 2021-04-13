@@ -72,6 +72,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="130dp"/>
 
+
     <View style="@style/HorizontalDivider"
         android:id="@+id/horizontalDivider"/>
 

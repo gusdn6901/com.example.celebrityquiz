@@ -5,6 +5,7 @@ import java.io.Serializable;
 // Bridge class connecting MainActivity with QuizAdapter
 // Serialize to extract objects from intent in SolutionActivity
 public class Quiz implements Serializable {
+    int number;
     String question;
     String imageUrl;
     String one;
@@ -15,8 +16,9 @@ public class Quiz implements Serializable {
     int userAnswer;
     String hint;
 
-    Quiz(String question, String imageUrl, String one, String two,
+    Quiz(int number, String question, String imageUrl, String one, String two,
          String three, String four, int correctAnswer, int userAnswer, String hint) {
+        this.number = number;
         this.question = question;
         this.imageUrl = imageUrl;
         this.one = one;
