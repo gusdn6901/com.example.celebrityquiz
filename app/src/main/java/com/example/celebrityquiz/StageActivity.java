@@ -9,10 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.Objects;
 
 public class StageActivity extends AppCompatActivity {
     private TextView textViewCategory1;
@@ -40,6 +37,14 @@ public class StageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stage);
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("스테이지 선택");
+        }
+
         textViewCategory1 = findViewById(R.id.textViewCategory1);
         textViewStage1 = findViewById(R.id.textViewStage1);
         textViewScore1 = findViewById(R.id.textViewScore1);
@@ -97,6 +102,12 @@ public class StageActivity extends AppCompatActivity {
             views.get(j++).setText(sf.getString("score"+logLocation, ""));
             views.get(j++).setText(sf.getString("seconds"+logLocation, ""));
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
     }
 
     public void onButtonStartQuiz(View view) {

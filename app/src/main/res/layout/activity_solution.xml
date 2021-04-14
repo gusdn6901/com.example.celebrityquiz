@@ -63,17 +63,5 @@
         app:layout_constraintStart_toStartOf="@id/scoreViewBackground"
         app:layout_constraintTop_toBottomOf="@+id/scoreViewDivider" />
 
-    <!-- Well done view display -->
-    <ImageView
-        android:id="@+id/wellDoneImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="30dp"
-        android:contentDescription="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scoreViewBackground"
-        app:srcCompat="@drawable/well_done" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

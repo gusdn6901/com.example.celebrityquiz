@@ -31,47 +31,47 @@
         <item>27</item>
     </array>
     <array name="questions">
-        <item> actor question </item>
-        <item> actor question </item>
-        <item> actor question </item>
-        <item> actor question </item>
-        <item> actor question </item>
-        <item> actor question </item>
-        <item> actor question</item>
-        <item> actor question</item>
-        <item> actor question</item>
+        <item>다음 배우의 이름은?</item>
+        <item>다음 여배우의 이름은?</item>
+        <item>곡성에 출현한 다음 배우의 이름은?</item>
+        <item>다음 배우가 사진 속 출현한 작품은?</item>
+        <item>다음 배우가 사진 속 출현한 작품은?</item>
+        <item>다음 배우가 사진 속 출현한 작품은?</item>
+        <item>다음 배우의 사진 속 극중 인물 이름은?</item>
+        <item>다음 배우의 사진 속 극중 인물 이름은?</item>
+        <item>다음 배우의 사진 속 극중 인물 이름은?</item>
 
-        <item> athlete question </item>
-        <item> athlete question </item>
-        <item> athlete question </item>
-        <item> athlete question </item>
-        <item> athlete question </item>
-        <item> athlete question </item>
-        <item> athlete question </item>
-        <item> athlete question </item>
-        <item> athlete question </item>
+        <item>다음 운동선수의 이름은?</item>
+        <item>다음 운동선수의 이름은?</item>
+        <item>다음 운동선수의 이름은?</item>
+        <item>다음 운동선수의 첫째 아들의 이름은?</item>
+        <item>다음 선수의 경기 닉네임은?</item>
+        <item>다음 운동선수의 아들의 이름은?</item>
+        <item>다음 사진의 운동선수가 사진 속 소속했던 팀은?</item>
+        <item>다음 사진의 운동선수가 사진 속 소속했던 팀은?</item>
+        <item>다음 운동선수가 2008년도 수상했던 경기는?</item>
 
-        <item> singer question </item>
-        <item> singer question </item>
-        <item> singer question </item>
-        <item> singer question </item>
-        <item> singer question </item>
-        <item> singer question </item>
-        <item> singer question </item>
-        <item> singer question </item>
-        <item> singer question </item>
+        <item>다음 가수의 이름은?</item>
+        <item>다음 가수의 이름은?</item>
+        <item>다음 가수의 이름은?</item>
+        <item>다음 가수의 소속 그룹은?</item>
+        <item>다음 가수의 소속 그룹은?</item>
+        <item>다음 가수의 이름은?</item>
+        <item>다음 가수의 이름은?</item>
+        <item>다음 가수의 이름은?</item>
+        <item>다음 가수의 이름은?</item>
     </array>
 
     <array name="imageUrls">
         <item>https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Song_Joong-ki_at_Style_Icon_Asia_2016.jpg/230px-Song_Joong-ki_at_Style_Icon_Asia_2016.jpg</item>
         <item>https://upload.wikimedia.org/wikipedia/commons/1/15/Doona_Bae_promoting_The_Tunnel.png</item>
         <item>https://pds.joins.com/news/component/htmlphoto_mmdata/202007/29/af96b038-d75c-449f-a8d7-e7ce11b49cd7.jpg</item>
-        <item>https://upload.wikimedia.org/wikipedia/commons/b/b5/JTBC_%EB%93%9C%EB%9D%BC%EB%A7%88_%27%EB%9D%BC%EC%9D%B4%ED%94%84%27_%EC%A0%9C%EC%9E%91%EB%B0%9C%ED%91%9C%ED%9A%8C_%EC%A1%B0%EC%8A%B9%EC%9A%B0_%281%29.jpg</item>
-        <item>https://dimg.donga.com/wps/NEWS/IMAGE/2020/01/16/99248494.2.png</item>
-        <item>https://newsimg.hankookilbo.com/cms/articlerelease/2018/10/25/201810251435369806_1.jpg</item>
-        <item>http://topclass.chosun.com/news_img/1606/1606_046.jpg</item>
-        <item>http://topclass.chosun.com/news_img/1910/1910_008.jpg</item>
-        <item>https://t1.daumcdn.net/cfile/tistory/254B684957EA1D0311</item>
+        <item>https://pbs.twimg.com/media/DRZln7-VwAM0yh_.jpg</item>
+        <item>https://lh3.googleusercontent.com/proxy/ig62ukkHnscgrhicxbMX6fDvR_fffc-CPxGZxfRl6Z8av2i5lu-yvHolCO-5GCw7QMedLRkRXBugqVNmikTUFrwrmi8wnysajvMM8jmtk3DHD3jjjOFGAPykov6dDG6YcMWqV92mz4qdnx1w56tXIcSenCUnwsOK9qvYjUiqi6mDHvmulr4Ha3-LbdU4TiMzsKJrc0A6WLHsAINHi1EEa9GJbNqU4F1WS5MlBY9Oqm9YiCLSb2xg3oFzvTSe5YX2b9tbsE9KzodshemmGypoZaJHYT3MT6wi8XApbN5SVg</item>
+        <item>https://post-phinf.pstatic.net/MjAxODA0MDNfMjA0/MDAxNTIyNzQyNjY2NzU5.y3FGkcwwuGLLbuE2Q83hF_aepvmciePlVOgC5NDyrO0g.1UlbNNCd0YhUqQ2OLTmKgd36m9yFqnzUsdA5ReeGlrgg.JPEG/sh180403ha4-768x512.jpg?type=w1200</item>
+        <item>https://post-phinf.pstatic.net/MjAxNzEyMjBfMjcw/MDAxNTEzNzQ0NjI4MzQ1.Muafs1qPDMtCgjQkhQeL5x6fh0xYtrk2DFWf2HflE0Mg.L1ObhZovuCnCIgE7eJOdzSEy4th_BvY_PwS0mEbAmWIg.JPEG/movie_image_%287%29.jpg?type=w1200</item>
+        <item>https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5415%2F2019%2F07%2F15%2F0000112957_002_20190715141039025.png</item>
+        <item>http://image.kmib.co.kr/online_image/2020/0623/611811110014721812_1.jpg</item>
 
         <item>https://spnimage.edaily.co.kr/images/Photo/files/NP/S/2017/10/PS17100300068.jpg</item>
         <item>https://pds.joins.com/news/component/htmlphoto_mmdata/201911/05/9b249f9d-b742-422f-92f2-c0ab32ba41a3.jpg</item>
@@ -88,40 +88,39 @@
         <item>https://pbs.twimg.com/profile_images/1126035994304663552/rUBGkyzo_400x400.jpg</item>
         <item>https://img.hankyung.com/photo/202007/BF.23134863.1.jpg</item>
         <item>https://upload.wikimedia.org/wikipedia/commons/5/59/%EC%94%AC%ED%94%8C%EB%A0%88%EC%9D%B4%EB%B9%8C_8%EC%9B%94%ED%98%B8_%EA%B0%95%ED%83%80.jpg</item>
-        <item>https://www.knun.net/data/photos/20160938/art_1474766871.jpg</item>
+        <item>https://pds.joins.com/news/component/htmlphoto_mmdata/201505/26/htm_20150526084352509.jpg</item>
         <item>https://yt3.ggpht.com/ytc/AAUvwngBpOumL5UFMOPpj3tjiuEUtaUk5zG-GWqqfX0Ofw=s900-c-k-c0x00ffffff-no-rj</item>
-        <item>https://lh3.googleusercontent.com/proxy/b-cvai-Zr0jM5aOyGcM8h2cMraTgjjyw4pUl05JXVI8jEm99AKzjeGyiC5g7uI1xacxRwRLjTpuBYAZufZ6Yn2vq3HFfgAMtVpeH9lxrmhMENVxTfL2mdyXrpVM6IBk5Kw9ipCjbwcHxX-4xeqLbG_KnJx-EZgtDAXN9PZBNW-K0IpiHak32ZRgjeRWTF5othgWI3EU0rPZSjKMCF9P20EbmAeW6URDbDGm99NnRdYkeCEW9H6qx0Il4Y45nVWKmM0f4RjeL41_RNi84kk2mDbvNj2EjGLNr8n1h8Bbpia6LRsUIBQ</item>
+        <item>http://www.sisa-news.com/data/photos/20140626/art_1403479649.jpg</item>
         <item>https://w.namu.la/s/fdd260528a87afd01599baed42f568710fef1ddf648a8f0a83f0491bb8b4d2ca081570f3068498ddb2b888ab231bd3f5f3807c9cb90fa9af25e245f7130a229e4aa9167cf6be8c07418e1d8acde1ed7a336c170b61103d404677deee345f7f74</item>
     </array>
-
 
     <array name="select1">
         <item>송중기</item>
         <item>박보검</item>
         <item>박보영</item>
-        <item>조승우</item>
-        <item>윤여정</item>
-        <item>주지훈</item>
-        <item>차태현</item>
-        <item>이병헌</item>
-        <item>이정재</item>
+        <item>도둑들</item>
+        <item>탐정</item>
+        <item>황해</item>
+        <item>최석은</item>
+        <item>무상필</item>
+        <item>홍라온</item>
 
         <item>이승엽</item>
         <item>이재홍</item>
         <item>안치홍</item>
-        <item>안정환</item>
-        <item>이천이</item>
-        <item>추성훈</item>
-        <item>박지성</item>
-        <item>손흥민</item>
-        <item>김연경</item>
+        <item>안재현</item>
+        <item>Marin</item>
+        <item>이재시</item>
+        <item>맨체스터 유나이티드</item>
+        <item>바이에른 뮌헨</item>
+        <item>베이징 올림픽</item>
 
         <item>아이유</item>
         <item>박효신</item>
         <item>김건모</item>
-        <item>소유</item>
-        <item>싸이</item>
-        <item>권인하</item>
+        <item>씨스타</item>
+        <item>젝스키스</item>
+        <item>정동하</item>
         <item>김현정</item>
         <item>김범수</item>
         <item>김수찬</item>
@@ -130,29 +129,29 @@
         <item>송강호</item>
         <item>배두나</item>
         <item>전지현</item>
-        <item>정우성</item>
-        <item>권상우</item>
-        <item>강동원</item>
-        <item>공명</item>
-        <item>정해인</item>
-        <item>안성기</item>
+        <item>타짜</item>
+        <item>해바라기</item>
+        <item>베를린</item>
+        <item>김자홍</item>
+        <item>태희</item>
+        <item>배연희</item>
 
         <item>기성용</item>
         <item>류현진</item>
         <item>추신수</item>
-        <item>김신욱</item>
-        <item>이상혁</item>
-        <item>차범근</item>
-        <item>이청용</item>
-        <item>이강인</item>
-        <item>김광현</item>
+        <item>안리환</item>
+        <item>faker</item>
+        <item>이시안</item>
+        <item>FC 바르셀로나</item>
+        <item>발렌시아</item>
+        <item>상하이 세계 선수권 대회</item>
 
         <item>별</item>
         <item>나훈아</item>
         <item>김수찬</item>
+        <item>트와이스</item>
+        <item>H.O.T</item>
         <item>김경호</item>
-        <item>강타</item>
-        <item>구자명</item>
         <item>김범수</item>
         <item>거미</item>
         <item>강균성</item>
@@ -161,29 +160,29 @@
         <item>하정우</item>
         <item>임시완</item>
         <item>황정민</item>
-        <item>하지원</item>
-        <item>김래원</item>
-        <item>김새벽</item>
-        <item>송새벽</item>
-        <item>김보라</item>
-        <item>김유정</item>
+        <item>비밀의 숲</item>
+        <item>히트맨</item>
+        <item>더 테러 라이브</item>
+        <item>남현수</item>
+        <item>차현우</item>
+        <item>정샛별</item>
 
         <item>최정</item>
         <item>서장훈</item>
         <item>강호동</item>
-        <item>박세리</item>
-        <item>양현종</item>
-        <item>이동국</item>
-        <item>박주영</item>
-        <item>손연재</item>
-        <item>박태환</item>
+        <item>이혜원</item>
+        <item>showMaker</item>
+        <item>이재현</item>
+        <item>첼시</item>
+        <item>전북 현대</item>
+        <item>아테네 올림픽</item>
 
         <item>김연우</item>
         <item>가인김</item>
         <item>엔씨아</item>
-        <item>김동욱</item>
-        <item>린</item>
-        <item>김광석</item>
+        <item>2NE1</item>
+        <item>신화</item>
+        <item>이승철</item>
         <item>조용필</item>
         <item>김현정</item>
         <item>남진</item>
@@ -192,29 +191,29 @@
         <item>금새록</item>
         <item>강민아</item>
         <item>구재이</item>
-        <item>고윤</item>
-        <item>최민식</item>
-        <item>박서준</item>
-        <item>고수</item>
-        <item>이광규</item>
-        <item>강석우</item>
+        <item>내부자들</item>
+        <item>말죽거리 잔혹사</item>
+        <item>추격자</item>
+        <item>견우</item>
+        <item>김호</item>
+        <item>박진아</item>
 
         <item>이승우</item>
         <item>이천수</item>
         <item>황희찬</item>
-        <item>이영표</item>
-        <item>장미란</item>
-        <item>양준혁</item>
-        <item>최강희</item>
-        <item>박연비</item>
-        <item>이용대</item>
+        <item>안리원</item>
+        <item>Mata</item>
+        <item>이재아</item>
+        <item>맨체스터 시티</item>
+        <item>유벤투스</item>
+        <item>광저우 아시안 게임</item>
 
         <item>윤아</item>
         <item>남진</item>
         <item>박현빈</item>
-        <item>장윤정</item>
-        <item>장범준</item>
-        <item>보아</item>
+        <item>에프터스쿨</item>
+        <item>god</item>
+        <item>박완규</item>
         <item>비</item>
         <item>권정렬</item>
         <item>이무진</item>
@@ -223,20 +222,20 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
-        <item>1</item>
         <item>2</item>
-        <item>3</item>
-        <item>1</item>
+        <item>4</item>
+        <item>4</item>
+        <item>2</item>
         <item>2</item>
         <item>3</item>
 
         <item>1</item>
         <item>2</item>
         <item>3</item>
-        <item>1</item>
+        <item>2</item>
         <item>2</item>
         <item>3</item>
-        <item>1</item>
+        <item>2</item>
         <item>2</item>
         <item>3</item>
 
@@ -282,25 +281,25 @@
         <item>0</item>
     </array>
     <array name="hints">
-        <item>이혼</item>
+        <item>태양의 후예</item>
         <item>외국 영화 출연</item>
         <item>술톤배우</item>
-        <item>비밀의 숲</item>
-        <item>영화 "탐정"</item>
-        <item>영화 "벌새"</item>
-        <item>영화 "엽기적인 그녀"</item>
+        <item>고니</item>
+        <item>"느그 아부지 뭐하시노"</item>
+        <item>"야 4885"</item>
+        <item>신과 함께</item>
         <item>도깨비</item>
-        <item>최고의 연인</item>
+        <item>편의점</item>
 
         <item>4번 타자</item>
         <item>진라면</item>
         <item>신서유기</item>
-        <item>뭉처야 산다</item>
-        <item>차두리</item>
-        <item>텍사스 레인저스</item>
-        <item>축구선수</item>
-        <item>발렌시아 cf</item>
-        <item>마린보이</item>
+        <item>안리X</item>
+        <item>T1</item>
+        <item>슈퍼맨이 돌아왔다</item>
+        <item>맨체스터</item>
+        <item>라 리가</item>
+        <item>올림픽</item>
 
         <item>분홍신</item>
         <item>김현정</item>

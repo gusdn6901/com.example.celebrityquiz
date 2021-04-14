@@ -9,136 +9,69 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
-    <!-- Level of Difficulty -->
     <ImageView
-        android:id="@+id/levelBackground"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/image_shape_gray"
-        android:contentDescription="@null"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/imageMain"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/app_icon"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UnusedAttribute" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <TextView
-        android:id="@+id/levelHeader"
+        android:id="@+id/textMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/settingsTitle"
-        app:layout_constraintStart_toStartOf="@+id/levelBackground"
-        app:layout_constraintTop_toTopOf="@+id/levelBackground" />
-
-    <RadioGroup
-        android:id="@+id/levelRadioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="@+id/levelBackground"
-        app:layout_constraintTop_toBottomOf="@+id/levelHeader">
-
-        <RadioButton
-            android:id="@+id/radioButtonLevelOne"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/level1" />
-
-        <RadioButton
-            android:id="@+id/radioButtonLevelTwo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/level2" />
-
-        <RadioButton
-            android:id="@+id/radioButtonLevelThree"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/level3" />
-    </RadioGroup>
-
-    <!-- Time -->
-    <ImageView
-        android:id="@+id/timeBackground"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/image_shape_gray"
-        android:contentDescription="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UnusedAttribute" />
-
-    <TextView
-        android:id="@+id/timeHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/timeTitle"
-        app:layout_constraintStart_toStartOf="@+id/timeBackground"
-        app:layout_constraintTop_toTopOf="@+id/timeBackground" />
-
-    <RadioGroup
-        android:id="@+id/radioGroupTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="@+id/timeBackground"
-        app:layout_constraintTop_toBottomOf="@+id/timeHeader">
-
-        <RadioButton
-            android:id="@+id/radioButton30"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/seconds30" />
-
-        <RadioButton
-            android:id="@+id/radioButton60"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/seconds60" />
-
-        <RadioButton
-            android:id="@+id/radioButton90"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/seconds90" />
-    </RadioGroup>
-
-    <ProgressBar
-        android:id="@+id/progressBarDownload"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="70dp"
+        android:text="샐럽 퀴즈"
+        android:textAllCaps="false"
+        android:textSize="34dp"
+        android:textStyle="bold"
+        android:textColor="#495E61"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/levelBackground" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageMain" />
 
     <Button
-        android:id="@+id/buttonUpdate"
+        android:id="@+id/buttonGoStage"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/button_rounded"
         android:elevation="2dp"
         android:gravity="center"
-        android:onClick="onButtonUpdate"
-        android:text="@string/update"
+        android:onClick="onButtonGoStage"
+        android:text="@string/goStage"
         android:textAllCaps="false"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textMain" />
+
+    <Button
+        android:id="@+id/buttonRecord"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_rounded"
+        android:elevation="2dp"
+        android:gravity="center"
+        android:text="@string/goFavorite"
+        android:onClick="onButtonRecord"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="20dp"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/levelBackground" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonGoStage" />
 
     <Button
         android:id="@+id/buttonSetting"
@@ -148,43 +81,18 @@
         android:background="@drawable/button_rounded"
         android:elevation="2dp"
         android:gravity="center"
-        android:text="@string/settings"
+        android:text="@string/goSettings"
         android:onClick="onButtonSetting"
         android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="20dp"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonUpdate" />
-    <Button
-        android:id="@+id/buttonRecord"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_rounded"
-        android:elevation="2dp"
-        android:gravity="center"
-        android:text="Record"
-        android:onClick="onButtonRecord"
-        android:textAllCaps="false"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSetting" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonRecord"/>
 
-    <Button
-        android:id="@+id/buttonGoStage"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_rounded"
-        android:elevation="2dp"
-        android:gravity="center"
-        android:enabled="false"
-        android:onClick="onButtonGoStage"
-        android:text="Go Stage"
-        android:textAllCaps="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRecord" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -155,8 +155,8 @@ public class SolutionAdapter extends RecyclerView.Adapter {
                         answerString = quiz.four;
                         break;
                 }
-                userAnswer.setText("Your answer is " + (quiz.userTextAnswer == null ? "" : quiz.userTextAnswer));
-                correctAnswer.setText("The answer is " + answerString);
+                userAnswer.setText("답안 : " + (quiz.userTextAnswer == null ? "" : quiz.userTextAnswer));
+                correctAnswer.setText("정답 : " + answerString);
                 if(quiz.userTextAnswer != null)
                     if(quiz.userTextAnswer.equals(answerString)) userAnswer.setTextColor(Color.parseColor("#FF0BA512"));
             }

@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -55,11 +56,21 @@ public class QuizActivity extends AppCompatActivity {
     private EditText editTextAnswer;
     private Button buttonPrevious;
     private Button buttonNext;
-    private Button buttonHint;
+    private ImageButton buttonStar;
     private TextView textTime;
     private CountDownTimer countDownTimer;
 
-
+    private int[] numbers;
+    private String[] questions;
+    private String[] imageUrls;
+    private String[] select1;
+    private String[] select2;
+    private String[] select3;
+    private String[] select4;
+    private int[] correctAnswers;
+    private int[] userAnswers;
+    private String[] hints;
+    private int stage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +88,8 @@ public class QuizActivity extends AppCompatActivity {
         radioButtonTwo = findViewById(R.id.radioButtonTwo);
         radioButtonThree = findViewById(R.id.radioButtonThree);
         radioButtonFour = findViewById(R.id.radioButtonFour);
+        buttonStar = findViewById(R.id.buttonStar);
         editTextAnswer = findViewById(R.id.editTextAnswer);
-        buttonHint = findViewById(R.id.buttonHint);
         textTime = findViewById(R.id.textTime);
         // Define button views
         buttonNext = findViewById(R.id.buttonNext);
@@ -128,7 +139,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
-        int stage = intent.getIntExtra("stage", 1);
+        stage = intent.getIntExtra("stage", 1);
 
         int iter = 0;
         switch (category) {
@@ -155,69 +166,22 @@ public class QuizActivity extends AppCompatActivity {
 
         ArrayList<Quiz> list = new ArrayList<>();
         Resources res = getResources();
-        int[] numbers = res.getIntArray(R.array.numbers);
-        String[] questions = res.getStringArray(R.array.questions);
-        String[] imageUrls = res.getStringArray(R.array.imageUrls);
-        String[] select1 = res.getStringArray(R.array.select1);
-        String[] select2 = res.getStringArray(R.array.select2);
-        String[] select3 = res.getStringArray(R.array.select3);
-        String[] select4 = res.getStringArray(R.array.select4);
-        int[] correctAnswers = res.getIntArray(R.array.correctAnswers);
-        int[] userAnswers = res.getIntArray(R.array.userAnswers);
-        final String[] hints = res.getStringArray(R.array.hints);
+        numbers = res.getIntArray(R.array.numbers);
+        questions = res.getStringArray(R.array.questions);
+        imageUrls = res.getStringArray(R.array.imageUrls);
+        select1 = res.getStringArray(R.array.select1);
+        select2 = res.getStringArray(R.array.select2);
+        select3 = res.getStringArray(R.array.select3);
+        select4 = res.getStringArray(R.array.select4);
+        correctAnswers = res.getIntArray(R.array.correctAnswers);
+        userAnswers = res.getIntArray(R.array.userAnswers);
+        hints = res.getStringArray(R.array.hints);
+
         for(; iter < end; iter++) {
             list.add(new Quiz(numbers[iter],questions[iter], imageUrls[iter], select1[iter], select2[iter], select3[iter],
                     select4[iter], correctAnswers[iter], userAnswers[iter], hints[iter]));
         }
         quizList = list;
-        System.out.println(imageUrls[0]);
-        buttonHint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String hint = hints[indexCurrentQuestion];
-                Toast myToast = Toast.makeText(QuizActivity.this, hint, Toast.LENGTH_LONG);
-                myToast.show();
-                myToast.setGravity(Gravity.TOP, 300, 200);
-
-                buttonHint.setVisibility(View.INVISIBLE);
-            }
-        });
-//        // Access intent interface and get variables
-//        Intent intent = getIntent();
-//        int level = intent.getIntExtra("level", 0);
-//        seconds = intent.getIntExtra("seconds", 30);
-//        String string = null;
-//
-//        //Safely read data from saved file
-//        try {
-//            FileInputStream fileInputStream = openFileInput("myJson");
-//            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
-//            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-//            StringBuilder stringBuilder = new StringBuilder();
-//            String line;
-//            while ((line = bufferedReader.readLine()) != null) {
-//                stringBuilder.append(line);
-//            }
-//            string = stringBuilder.toString();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        Gson gson = new Gson();
-//        Type type = new TypeToken<List<Quiz>>(){}.getType();
-//        List<Quiz> list = gson.fromJson(string, type);
-//
-//        // Set sublist based on user set level
-//        if (level == 1) {
-//            assert list != null;
-//            quizList = list.subList(0, 5);
-//        } else if (level == 2) {
-//            assert list != null;
-//            quizList = list.subList(5, 10);
-//        } else {
-//            assert list != null;
-//            quizList = list.subList(10, 15);
-//        }
 
         // initialise and set for each index in current activity as current question
         indexCurrentQuestion = 0;
@@ -335,6 +299,22 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
+    public void onButtonHint(View view) {
+        int index = indexCurrentQuestion;
+        if(category.equals("운동선수")) index += 9;
+        else if(category.equals("가수")) index += 18;
+        if(stage == 2) index += 3;
+        else if(stage ==3) index += 6;
+
+        String hint = hints[index];
+
+        Toast myToast = Toast.makeText(QuizActivity.this, "힌트: " + hint, Toast.LENGTH_LONG);
+        myToast.show();
+        myToast.setGravity(Gravity.CENTER, 0, 0);
+
+        view.setVisibility(View.INVISIBLE);
+    }
+
     public void currentQuestionView(Quiz currentQuestion) {
         questionView.setText(String.format("%s. %s", indexCurrentQuestion + 1, currentQuestion.question));
         radioButtonOne.setText(currentQuestion.one);
@@ -343,6 +323,11 @@ public class QuizActivity extends AppCompatActivity {
         radioButtonFour.setText(currentQuestion.four);
         editTextAnswer.setText(currentQuestion.userTextAnswer);
         Glide.with(imageView.getContext()).load(currentQuestion.imageUrl).into(imageView);
+
+        SharedPreferences sf = getSharedPreferences("starboolean",MODE_PRIVATE);
+        boolean starchecked = sf.getBoolean(Integer.toString(quizList.get(indexCurrentQuestion).number), false);
+        if(starchecked) buttonStar.setBackgroundResource(R.drawable.star_fill);
+        else buttonStar.setBackgroundResource(R.drawable.star_empty);
     }
 
     // Calculate score
@@ -383,9 +368,11 @@ public class QuizActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sf.edit();
         if(starchecked){
             editor.putBoolean(Integer.toString(quizList.get(indexCurrentQuestion).number), false);
+            buttonStar.setBackgroundResource(R.drawable.star_empty);
         }
         else{
             editor.putBoolean(Integer.toString(quizList.get(indexCurrentQuestion).number), true);
+            buttonStar.setBackgroundResource(R.drawable.star_fill);
         }
         editor.commit();
     }
@@ -401,7 +388,7 @@ public class QuizActivity extends AppCompatActivity {
 
         editor.putInt("size", addLogLocation);
         editor.putString("category"+addLogLocation, category);
-        editor.putString("stage"+ addLogLocation, "스테이지" + getIntent().getIntExtra("stage", 1));
+        editor.putString("stage"+ addLogLocation, "Stage " + getIntent().getIntExtra("stage", 1));
         editor.putString("score"+ addLogLocation, score + "개");
         editor.putString("seconds"+ addLogLocation, (seconds - remainTime) + "초");
         editor.commit();

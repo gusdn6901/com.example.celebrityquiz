@@ -21,7 +21,6 @@ public class SolutionActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solution);
 
-
         // Define Navigation
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -40,26 +39,12 @@ public class SolutionActivity extends AppCompatActivity{
 
         // Set score out-of view
         TextView scoreTotalView = findViewById(R.id.scoreTotalTextView);
-        scoreTotalView.setText(String.valueOf(5));
-
-        // See function
-        displayWellDone(scoreValue);
+        scoreTotalView.setText(String.valueOf(3));
 
         // RecycleView definitions
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         SolutionAdapter solutionAdapter = new SolutionAdapter(quizList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(solutionAdapter);
-    }
-
-    // Function to display well done image if user gets all correct | also settings for total value
-    public void displayWellDone(int score) {
-
-        // Set view for well done image
-        ImageView imageView = findViewById(R.id.wellDoneImage);
-        imageView.setVisibility(View.INVISIBLE); // set image invisible
-
-        // display well done image if user gets all correct
-        if (score == 5) imageView.setVisibility(View.VISIBLE);
     }
 }

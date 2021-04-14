@@ -120,7 +120,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter {
                         answerString = quiz.four;
                         break;
                 }
-                correctAnswer.setText("The answer is " + answerString);
+                correctAnswer.setText(answerString);
                 if(quiz.userTextAnswer != null)
                     if(quiz.userTextAnswer.equals(answerString)) userAnswer.setTextColor(Color.parseColor("#FF0BA512"));
             }
