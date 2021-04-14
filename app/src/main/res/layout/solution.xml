@@ -27,6 +27,7 @@
         android:contentDescription="@null"
         android:background="@drawable/image_shape_orange"
         android:elevation="3dp"
+        android:scaleType="centerCrop"
         tools:ignore="UnusedAttribute" />
 
     <!-- Radio group view -->

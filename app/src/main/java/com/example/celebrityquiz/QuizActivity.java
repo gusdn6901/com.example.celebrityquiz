@@ -28,8 +28,12 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -37,6 +41,9 @@ public class QuizActivity extends AppCompatActivity {
     private List<Quiz> quizList;
     private int seconds;
     private int indexCurrentQuestion;
+    private String mode;
+    private String category;
+    private int remainTime;
 
     private TextView questionView;
     private ImageView imageView;
@@ -51,6 +58,8 @@ public class QuizActivity extends AppCompatActivity {
     private Button buttonHint;
     private TextView textTime;
     private CountDownTimer countDownTimer;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +85,9 @@ public class QuizActivity extends AppCompatActivity {
         buttonPrevious = findViewById(R.id.buttonPrevious);
 
         SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
-        String mode = sf.getString("mode", "객관식");
+        mode = sf.getString("mode", "객관식");
         seconds = sf.getInt("seconds", 60);
-        String category = sf.getString("category", "배우");
+        category = sf.getString("category", "배우");
 
         if(mode.equals("객관식"))
             editTextAnswer.setVisibility(View.GONE);
@@ -161,7 +170,7 @@ public class QuizActivity extends AppCompatActivity {
                     select4[iter], correctAnswers[iter], userAnswers[iter], hints[iter]));
         }
         quizList = list;
-
+        System.out.println(imageUrls[0]);
         buttonHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -225,14 +234,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 stopTimer();
-                finish();
-                Intent i = new Intent(QuizActivity.this, SolutionActivity.class);
-                i.putExtra("score", getScore());
-                // Change List to ArrayList to accommodate subList
-                ArrayList<Quiz> list = new ArrayList<>(quizList);
-                i.putExtra("quizList", list);
-                i.setFlags(Intent. FLAG_ACTIVITY_CLEAR_TOP | Intent. FLAG_ACTIVITY_SINGLE_TOP );
-                startActivity(i);
+                doFinishTask();
             }
         });
     }
@@ -244,17 +246,12 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onTick(long millisUntilFinished) {
                 textTime.setText(String.valueOf((int) (millisUntilFinished / 1000)));
+                remainTime = (int)(millisUntilFinished / 1000);
             }
 
             @Override
             public void onFinish() {
-                Intent i = new Intent(QuizActivity.this, SolutionActivity.class);
-                i.putExtra("score", getScore());
-                // Change List to ArrayList to accommodate subList
-                ArrayList<Quiz> list = new ArrayList<>(quizList);
-                i.putExtra("quizList", list);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(i);
+                doFinishTask();
             }
         }.start();
     }
@@ -352,7 +349,6 @@ public class QuizActivity extends AppCompatActivity {
     public int getScore() {
         int score = 0;
         SharedPreferences sf = getSharedPreferences("setting", MODE_PRIVATE);
-        String mode = sf.getString("mode", "객관식");
 
         if (mode.equals("객관식")) {
             for (int i = 0; i < quizList.size(); i++)
@@ -392,6 +388,37 @@ public class QuizActivity extends AppCompatActivity {
             editor.putBoolean(Integer.toString(quizList.get(indexCurrentQuestion).number), true);
         }
         editor.commit();
+    }
 
+    private void doFinishTask() {
+        SharedPreferences sf;
+        if(mode.equals("객관식")) sf = getSharedPreferences("Log_mode1", MODE_PRIVATE);
+        else sf = getSharedPreferences("Log_mode2", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sf.edit();
+        int score = getScore();
+
+        int addLogLocation = sf.getInt("size", 0)+1;
+
+        editor.putInt("size", addLogLocation);
+        editor.putString("category"+addLogLocation, category);
+        editor.putString("stage"+ addLogLocation, "스테이지" + getIntent().getIntExtra("stage", 1));
+        editor.putString("score"+ addLogLocation, score + "개");
+        editor.putString("seconds"+ addLogLocation, (seconds - remainTime) + "초");
+        editor.commit();
+
+        finish();
+        Intent i = new Intent(QuizActivity.this, SolutionActivity.class);
+        i.putExtra("score", score);
+        // Change List to ArrayList to accommodate subList
+        ArrayList<Quiz> list = new ArrayList<>(quizList);
+        i.putExtra("quizList", list);
+        i.setFlags(Intent. FLAG_ACTIVITY_CLEAR_TOP | Intent. FLAG_ACTIVITY_SINGLE_TOP );
+        startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        stopTimer();
     }
 }
